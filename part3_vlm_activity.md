@@ -1,9 +1,9 @@
 # The Eras Tour of Computer Vision
 ## Era 3: The Vision-Language Era (Workshop Edition)
 
-For the first time in this tour, you get an answer *with an explanation*. Grab your phone or
-laptop, open any free chat assistant that accepts image uploads (Claude, ChatGPT, Gemini — your
-choice), and try this on the images below.
+For the first time in this tour, you get an answer *with an explanation*. On your laptop, open
+any free chat assistant that accepts image uploads (Claude, ChatGPT, Gemini — your choice), and
+try this on the images below.
 
 ## The prompt
 
