@@ -1,0 +1,51 @@
+filename,has_mug,tier,notes
+mugs/baseline_01.jpg,1,baseline,"White ceramic mug, plain white/neutral background, centered, even lighting."
+mugs/baseline_02.jpg,1,baseline,"Solid-colored ceramic mug (e.g. blue or red), plain background, centered."
+mugs/baseline_03.jpg,1,baseline,"White mug, plain background, handle facing right."
+mugs/baseline_04.jpg,1,baseline,"White mug, plain background, handle facing left (mirror of previous)."
+mugs/baseline_05.jpg,1,baseline,"Small espresso/demitasse mug, plain background."
+mugs/baseline_06.jpg,1,baseline,"Tall travel-style ceramic mug (no lid), plain background."
+mugs/baseline_07.jpg,1,baseline,"Patterned or printed mug (logo/design), plain background."
+mugs/baseline_08.jpg,1,baseline,Mug on a plain table under natural indoor window light.
+mugs/pose_occlusion_01.jpg,1,pose_occlusion,Mug half-hidden behind a laptop or monitor.
+mugs/pose_occlusion_02.jpg,1,pose_occlusion,"Handle turned fully away from camera, only the round body visible."
+mugs/pose_occlusion_03.jpg,1,pose_occlusion,Top-down view looking directly into the mug.
+mugs/pose_occlusion_04.jpg,1,pose_occlusion,"Mug held in a hand, partially occluded by fingers."
+mugs/pose_occlusion_05.jpg,1,pose_occlusion,Extreme close-up crop; only rim and handle fragment visible.
+mugs/pose_occlusion_06.jpg,1,pose_occlusion,Mug tipped on its side (e.g. rolled off a table).
+mugs/pose_occlusion_07.jpg,1,pose_occlusion,"Mug mostly hidden behind a stack of books, only top visible."
+mugs/pose_occlusion_08.jpg,1,pose_occlusion,Mug photographed from a low angle looking up.
+mugs/texture_context_01.jpg,1,texture_context,Mug on a wood-grain table whose color/texture is close to the mug's own color.
+mugs/texture_context_02.jpg,1,texture_context,Mug on a busy patterned tablecloth or placemat.
+mugs/texture_context_03.jpg,1,texture_context,Mug photographed outdoors on a picnic table or patio.
+mugs/texture_context_04.jpg,1,texture_context,Mug next to a similarly colored/shaped ceramic bowl.
+mugs/texture_context_05.jpg,1,texture_context,Mug in dim/low-light conditions.
+mugs/texture_context_06.jpg,1,texture_context,Mug backlit in front of a bright window (near-silhouette).
+mugs/texture_context_07.jpg,1,texture_context,"Mug on a cluttered desk with cables, papers, and other objects."
+mugs/texture_context_08.jpg,1,texture_context,Mug photographed through glass or with a visible reflection.
+mugs/texture_context_09.jpg,1,texture_context,Multiple mugs stacked or grouped together in one frame.
+mugs/ambiguous_01.jpg,1,ambiguous,Mug repurposed as a pen/pencil holder.
+mugs/ambiguous_02.jpg,1,ambiguous,Mug repurposed as a small plant pot.
+mugs/ambiguous_03.jpg,1,ambiguous,Mug placed upside down as a decorative/storage object.
+mugs/ambiguous_04.jpg,1,ambiguous,Chipped or partially broken mug (still clearly a mug).
+mugs/ambiguous_05.jpg,1,ambiguous,Novelty-shaped mug (e.g. animal- or character-shaped) that is a real drinking mug but has an unusual silhouette.
+mugs/ambiguous_06.jpg,1,ambiguous,"Toy or miniature mug (unusual scale, e.g. dollhouse-sized)."
+mugs/ambiguous_07.jpg,1,ambiguous,Travel mug hybrid with a lid attached.
+mugs/ambiguous_08.jpg,1,ambiguous,Two mugs nested or stacked together in one frame.
+distractors/teapot_01.jpg,0,distractor,"Teapot -- similar material and context, different shape/function."
+distractors/travel_tumbler_01.jpg,0,distractor,"Insulated travel tumbler with lid -- close in shape, different material/proportions."
+distractors/vase_01.jpg,0,distractor,"Ceramic vase -- similar material and cylindrical body, no handle."
+distractors/pitcher_01.jpg,0,distractor,"Pitcher/jug -- has a handle like a mug, but larger and differently proportioned."
+distractors/teacup_no_handle_01.jpg,0,distractor,"Handleless teacup -- close in size and use, missing the defining handle."
+distractors/thermos_01.jpg,0,distractor,"Metal thermos -- cylindrical body, different material and no ceramic handle."
+distractors/creamer_jug_01.jpg,0,distractor,"Small creamer jug -- has a handle and pours, much smaller than a mug."
+distractors/bowl_01.jpg,0,distractor,"Ceramic bowl -- same material family, no handle, different silhouette."
+distractors/candle_cylindrical_01.jpg,0,distractor,"Plain cylindrical candle -- similar rough shape and color, no handle."
+negatives/empty_desk_01.jpg,0,negative,"Empty desk surface, no mug or mug-like object present."
+negatives/keyboard_01.jpg,0,negative,"Keyboard alone on a desk, no mug present."
+negatives/empty_table_01.jpg,0,negative,"Empty dining table, no mug present."
+negatives/bookshelf_01.jpg,0,negative,"Bookshelf with books only, no mug present."
+negatives/plant_01.jpg,0,negative,"Houseplant in a plain pot, no mug present."
+negatives/stapler_01.jpg,0,negative,"Stapler on a desk, no mug present."
+negatives/empty_kitchen_counter_01.jpg,0,negative,"Empty kitchen counter, no mug present."
+negatives/notebook_pen_01.jpg,0,negative,"Notebook and pen on a desk, no mug present."

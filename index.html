@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Eras Tour of Computer Vision</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; line-height: 1.6; color: #222; }
+  h1, h2, h3 { font-family: Helvetica, Arial, sans-serif; color: #14213d; }
+  h1 { font-size: 2rem; border-bottom: 3px solid #14213d; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.3rem; margin-top: 2.2rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+  table.schedule { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.92rem; }
+  table.schedule th, table.schedule td { border: 1px solid #bbb; padding: 0.5rem 0.7rem; text-align: left; }
+  table.schedule th { background: #f3f4f6; }
+  code { background: #f3f4f6; padding: 0.1rem 0.35rem; border-radius: 3px; font-size: 0.9em; }
+  .notebook-card { background: #fafafa; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+  .notebook-card img { vertical-align: middle; }
+  .note { background: #fff8e1; border-left: 4px solid #f5c518; padding: 0.8rem 1rem; margin: 1.2rem 0; }
+  .tagline { font-style: italic; color: #555; }
+</style>
+</head>
+<body>
+
+<h1>The Eras Tour of Computer Vision</h1>
+<p class="tagline">Rules. Neural Nets. Vision-Language Models. One tour, three eras, no two nights the same.</p>
+
+<p>
+Welcome to the tour. Picture three completely different eras of computer vision, each with its
+own sound, its own style, its own idea of what counts as "seeing." In the next two hours you're
+going to run all three of them, back to back, on the exact same set of photos, and watch them
+agree, disagree, and occasionally embarrass each other.
+</p>
+<p>
+No laptop setup required beyond a browser. No prior computer vision background needed. Just
+click the badges below when it's your turn.
+</p>
+
+<h2>The set list</h2>
+<table class="schedule">
+<tr><th>Time</th><th>Segment</th><th>Format</th></tr>
+<tr><td>0:00-0:12</td><td>Framing: the tour, the image set, the three eras</td><td>Talk</td></tr>
+<tr><td>0:12-0:27</td><td>Era 1: The Rules Era &mdash; hands-on</td><td>Hands-on</td></tr>
+<tr><td>0:27-0:37</td><td>Partner share: whose rules broke, and why</td><td>Paired discussion</td></tr>
+<tr><td>0:37-0:47</td><td>Era 2: The Neural Nets Era &mdash; live demo</td><td>Talk</td></tr>
+<tr><td>0:47-1:02</td><td>Era 2 &mdash; hands-on</td><td>Hands-on</td></tr>
+<tr><td>1:02-1:12</td><td>Era 3: The Vision-Language Era &mdash; live demo</td><td>Talk</td></tr>
+<tr><td>1:12-1:27</td><td>Era 3 &mdash; hands-on</td><td>Hands-on</td></tr>
+<tr><td>1:27-1:45</td><td>The Encore: show and tell &mdash; your most interesting disagreement</td><td>Group share</td></tr>
+<tr><td>1:45-2:00</td><td>Open AMA</td><td>AMA</td></tr>
+</table>
+
+<h2>The three eras</h2>
+
+<div class="notebook-card">
+<h3>Era 1: The Rules Era</h3>
+<p>Hand-crafted color and shape logic. Already built and running &mdash; you'll tweak two numbers
+and watch a detector succeed, then break, then succeed differently.</p>
+<a href="https://colab.research.google.com/github/LinoNU/eras-tour-workshop/blob/main/part1_rules_workshop.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Era 1 in Colab">
+</a>
+</div>
+
+<div class="notebook-card">
+<h3>Era 2: The Neural Nets Era</h3>
+<p>A pretrained image classifier, no training required. One knob to turn: which labels count as
+"mug-like." Watch precision and recall trade off in real time.</p>
+<a href="https://colab.research.google.com/github/LinoNU/eras-tour-workshop/blob/main/part2_classifier_workshop.ipynb" target="_blank">
+<img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open Era 2 in Colab">
+</a>
+</div>
+
+<div class="notebook-card">
+<h3>Era 3: The Vision-Language Era</h3>
+<p>No notebook this time &mdash; just your phone and a free chat assistant. This is the only era
+that can tell you <em>why</em> it thinks what it thinks.</p>
+<a href="part3_vlm_activity.md">Open the activity sheet &rarr;</a>
+</div>
+
+<h2>The image set</h2>
+<div class="note">
+The full 50-photo set (mugs, near-miss distractors, and true negatives) is in
+<a href="data/">data/</a>, released under a
+<strong>Creative Commons Attribution 4.0 International License (CC BY 4.0)</strong>. Use it,
+adapt it, run your own workshop with it &mdash; see <code>data/LICENSE.txt</code> for the full
+terms and suggested attribution.
+</div>
+
+<h2>Want the full version?</h2>
+<p>
+This workshop is the condensed, two-hour, no-grading version of a full four-part introductory
+computer vision assignment (built for the AAAI/EAAI Model AI Assignments Session), which digs a
+lot deeper into each era and closes with a written synthesis case study. Ask me after the
+session if you want a pointer to it.
+</p>
+
+</body>
+</html>
