@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Era 3: The Vision-Language Era — The Eras Tour of Computer Vision</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; line-height: 1.6; color: #222; }
+  h1, h2, h3 { font-family: Helvetica, Arial, sans-serif; color: #14213d; }
+  h1 { font-size: 1.7rem; border-bottom: 3px solid #14213d; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.2rem; margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+  code, pre { background: #f3f4f6; border-radius: 4px; }
+  pre { padding: 1rem; overflow-x: auto; font-size: 0.95rem; }
+  code { padding: 0.1rem 0.35rem; font-size: 0.9em; }
+  a.back { display: inline-block; margin-bottom: 1.5rem; font-family: Helvetica, Arial, sans-serif; font-size: 0.9rem; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin: 1.2rem 0; }
+  .image-card { text-align: center; font-family: Helvetica, Arial, sans-serif; font-size: 0.85rem; }
+  .image-card img { width: 100%; max-width: 220px; border-radius: 8px; border: 1px solid #ddd; }
+  .image-card p { margin: 0.5rem 0 0; }
+  .image-card a { color: #14213d; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Back to the tour</a>
+
+<h1>Era 3: The Vision-Language Era</h1>
+<p><em>Workshop Edition</em></p>
+
+<p>
+For the first time in this tour, you get an answer <em>with an explanation</em>. On your laptop,
+open any free chat assistant that accepts image uploads (Claude, ChatGPT, Gemini &mdash; your
+choice), and try this on the images below.
+</p>
+
+<h2>The prompt</h2>
+<p>Use the same wording for each image so your results are comparable:</p>
+<pre>Look at this photo and answer in exactly this format, with nothing else:
+
+PREDICTION: yes or no &mdash; is there a coffee mug visible anywhere in this image?
+REASONING: one or two sentences on what visual evidence led to that answer.</pre>
+
+<h2>Try these five images</h2>
+<p>Click any image to open it full-size, then save it and upload it to your chat assistant.</p>
+
+<div class="image-grid">
+  <div class="image-card">
+    <a href="data/mugs/ambiguous_01.jpg" target="_blank"><img src="data/mugs/ambiguous_01.jpg" alt="A mug repurposed as a pen holder"></a>
+    <p><code>ambiguous_01.jpg</code><br>a mug repurposed as a pen holder</p>
+  </div>
+  <div class="image-card">
+    <a href="data/mugs/ambiguous_06.jpg" target="_blank"><img src="data/mugs/ambiguous_06.jpg" alt="A toy or miniature mug"></a>
+    <p><code>ambiguous_06.jpg</code><br>a toy/miniature mug</p>
+  </div>
+  <div class="image-card">
+    <a href="data/distractors/pitcher_01.jpg" target="_blank"><img src="data/distractors/pitcher_01.jpg" alt="A pitcher, not a mug"></a>
+    <p><code>pitcher_01.jpg</code><br>not a mug, but close</p>
+  </div>
+  <div class="image-card">
+    <a href="data/distractors/travel_tumbler_01.jpg" target="_blank"><img src="data/distractors/travel_tumbler_01.jpg" alt="A travel tumbler, not a mug"></a>
+    <p><code>travel_tumbler_01.jpg</code><br>also not a mug, also close</p>
+  </div>
+  <div class="image-card">
+    <a href="data/mugs/texture_context_06.jpg" target="_blank"><img src="data/mugs/texture_context_06.jpg" alt="A backlit mug, tricky lighting"></a>
+    <p><code>texture_context_06.jpg</code><br>backlit, tricky lighting</p>
+  </div>
+</div>
+
+<h2>While you try it, think about</h2>
+<ul>
+  <li><strong>Is the reasoning actually consistent with the image</strong>, even when the yes/no
+    answer is right? A model can get lucky with a bad reason, or be wrong for an almost-right one.</li>
+  <li><strong>Compare notes with your neighbor</strong> if they used a different chat assistant
+    than you did &mdash; did the answer change? Did the <em>reasoning</em> change?</li>
+  <li>Which of the five images gave the vision-language model the most trouble? Was it the same
+    one that gave the rule-based detector or the classifier trouble in Eras 1 and 2 &mdash; or a
+    different one entirely?</li>
+</ul>
+
+<h2>Bring one example to the group</h2>
+<p>
+Pick your most interesting result (a surprising success, a confident wrong answer, anything that
+made you go "huh") &mdash; we'll go around the room before the AMA.
+</p>
+
+</body>
+</html>

@@ -11,7 +11,7 @@ pretrained neural networks, and vision-language models — applied to the same s
 |---|---|
 | Era 1: The Rules Era | [Open in Colab](https://colab.research.google.com/github/LinoNU/eras-tour-workshop/blob/main/part1_rules_workshop.ipynb) |
 | Era 2: The Neural Nets Era | [Open in Colab](https://colab.research.google.com/github/LinoNU/eras-tour-workshop/blob/main/part2_classifier_workshop.ipynb) |
-| Era 3: The Vision-Language Era | [Activity sheet](part3_vlm_activity.md) (no notebook — just your laptop) |
+| Era 3: The Vision-Language Era | [Activity sheet](https://linonu.github.io/eras-tour-workshop/part3_vlm_activity.html) (no notebook — just your laptop) |
 
 ## What's in this repo
 
