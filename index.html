@@ -75,6 +75,58 @@ that can tell you <em>why</em> it thinks what it thinks.</p>
 <a href="part3_vlm_activity.html">Open the activity sheet &rarr;</a>
 </div>
 
+<h2>How each era actually works</h2>
+
+<div class="notebook-card">
+<h3>Era 1: rules, written by a human</h3>
+<p>
+The photo gets converted into a color space that separates <em>hue</em> (what color) from
+<em>brightness</em> (how light or dark), which makes it possible to write a rule like "keep
+any pixel that's roughly this color, regardless of lighting." Those matching pixels form a
+black-and-white mask. A cleanup step erases stray specks, then traces the outline of what's
+left. One last check asks: is this outline round enough, and roughly the right size, to be a
+mug? If yes, it's a match.
+</p>
+<p>
+<strong>The important part:</strong> every single rule here was written by a person, by hand.
+The computer isn't learning anything &mdash; it's just following instructions very literally,
+which is exactly why it breaks the moment a photo doesn't match those instructions.
+</p>
+</div>
+
+<div class="notebook-card">
+<h3>Era 2: a network that learned from examples</h3>
+<p>
+Long before today, this network was shown roughly a million labeled photos spanning about a
+thousand object categories, and it gradually adjusted millions of tiny internal numbers until
+its guesses matched the labels it was given. Nobody told it what a "handle" or "roundness"
+is &mdash; it discovered whatever patterns turned out to be useful entirely on its own.
+</p>
+<p>
+<strong>The important part:</strong> that learning phase (called <em>training</em>) already
+happened, once, somewhere else, using far more data and computing power than any of us have
+sitting in this room. Today we're only <em>using</em> the already-trained network
+(called <em>inference</em>), not teaching it anything new.
+</p>
+</div>
+
+<div class="notebook-card">
+<h3>Era 3: a network that learned pictures and words together</h3>
+<p>
+A vision-language model fuses two things into one system: a part that understands images, and
+a part that understands and generates language. It was trained on enormous numbers of images
+paired with real text describing them &mdash; captions, alt-text, articles &mdash; scraped from
+across the internet. Because it learned pictures and words <em>together</em>, it can connect
+what it sees to full sentences, not just a single label.
+</p>
+<p>
+<strong>The important part:</strong> this is the same basic kind of model behind general-purpose
+chat assistants &mdash; it just also happens to accept images as input. That's why it's the only
+era that can explain its reasoning in plain language instead of just returning a word and a
+number.
+</p>
+</div>
+
 <h2>The image set</h2>
 <div class="note">
 The full 50-photo set (mugs, near-miss distractors, and true negatives) is in
