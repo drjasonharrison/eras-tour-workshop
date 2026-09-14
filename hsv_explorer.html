@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HSV Color Explorer (OpenCV Scale) — The Eras Tour of Computer Vision</title>
+<style>
+  body { font-family: Georgia, "Times New Roman", serif; max-width: 900px; margin: 2rem auto; padding: 0 1.5rem; line-height: 1.6; color: #222; }
+  h1, h2, h3 { font-family: Helvetica, Arial, sans-serif; color: #14213d; }
+  h1 { font-size: 1.6rem; border-bottom: 3px solid #14213d; padding-bottom: 0.5rem; }
+  h2 { font-size: 1.15rem; margin-top: 1.8rem; border-bottom: 1px solid #ccc; padding-bottom: 0.3rem; }
+  code, pre { background: #f3f4f6; border-radius: 4px; }
+  code { padding: 0.1rem 0.35rem; font-size: 0.9em; }
+  a.back { display: inline-block; margin-bottom: 1.5rem; font-family: Helvetica, Arial, sans-serif; font-size: 0.9rem; }
+
+  .layout { display: flex; gap: 2rem; align-items: flex-start; margin-top: 1.5rem; flex-wrap: wrap; }
+  .controls { flex: 1 1 380px; min-width: 320px; }
+  .swatch-panel { flex: 0 0 260px; text-align: center; }
+
+  .swatch {
+    width: 220px; height: 220px; border-radius: 12px; margin: 0 auto 1rem;
+    border: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .readout { font-family: "Courier New", monospace; font-size: 1.05rem; color: #14213d; margin-bottom: 1.2rem; }
+
+  .slider-row { margin-bottom: 1.5rem; }
+  .slider-row label { display: flex; justify-content: space-between; font-family: Helvetica, Arial, sans-serif; font-size: 0.95rem; font-weight: bold; color: #14213d; margin-bottom: 0.3rem; }
+  .slider-row label span.value { font-family: "Courier New", monospace; font-weight: normal; color: #5b6584; }
+  input[type="range"] { width: 100%; }
+
+  .verdict {
+    font-family: Helvetica, Arial, sans-serif; font-weight: bold; font-size: 1.1rem;
+    padding: 0.9rem 1rem; border-radius: 8px; text-align: center; margin-top: 0.5rem;
+  }
+  .verdict.pass { background: #e6f4ea; color: #1a7431; border: 1px solid #b7dfc2; }
+  .verdict.fail { background: #fbe9e7; color: #a03a2e; border: 1px solid #f0c4bd; }
+  .verdict .why { display: block; font-weight: normal; font-size: 0.85rem; margin-top: 0.3rem; color: #555; }
+
+  .note { background: #fff8e1; border-left: 4px solid #f5c518; padding: 0.8rem 1rem; margin: 1.2rem 0; font-size: 0.95rem; }
+  .range-key { font-family: "Courier New", monospace; font-size: 0.85rem; background: #f3f4f6; padding: 0.8rem 1rem; border-radius: 6px; margin-top: 1rem; }
+</style>
+</head>
+<body>
+
+<a class="back" href="index.html">&larr; Back to the tour</a>
+
+<h1>HSV Color Explorer</h1>
+<p><em>OpenCV's actual scale &mdash; not the 0&ndash;360&deg; scale most color pickers use.</em></p>
+
+<p>
+Most online HSV pickers use Hue 0&ndash;360&deg; and Saturation/Value as percentages. OpenCV
+(and Era 1's <code>color_mask()</code>) uses a different scale: <strong>Hue 0&ndash;179</strong>,
+<strong>Saturation 0&ndash;255</strong>, <strong>Value 0&ndash;255</strong>. Drag the sliders
+below to see exactly what a given HSV triple looks like &mdash; and whether Era 1's actual code
+would flag it as a candidate mug color.
+</p>
+
+<div class="layout">
+  <div class="controls">
+    <div class="slider-row">
+      <label>Hue <span class="value" id="h-value">95</span> / 179</label>
+      <input type="range" id="h-slider" min="0" max="179" value="95">
+    </div>
+    <div class="slider-row">
+      <label>Saturation <span class="value" id="s-value">200</span> / 255</label>
+      <input type="range" id="s-slider" min="0" max="255" value="200">
+    </div>
+    <div class="slider-row">
+      <label>Value <span class="value" id="v-value">200</span> / 255</label>
+      <input type="range" id="v-slider" min="0" max="255" value="200">
+    </div>
+
+    <div class="range-key">
+      <strong>Era 1's actual ranges (from <code>color_mask()</code>):</strong><br>
+      white/light &nbsp;&rarr;&nbsp; H: 0&ndash;179, S: 0&ndash;60, &nbsp;V: 150&ndash;255<br>
+      blue-ish &nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp; H: 95&ndash;130, S: 80&ndash;255, V: 60&ndash;255
+    </div>
+  </div>
+
+  <div class="swatch-panel">
+    <div class="swatch" id="swatch"></div>
+    <div class="readout" id="readout">HSV(95, 200, 200)<br>RGB(30, 154, 200)<br>#1E9AC8</div>
+    <div class="verdict" id="verdict">&mdash;</div>
+  </div>
+</div>
+
+<div class="note">
+Try setting Hue to <strong>95</strong>, then <strong>130</strong> &mdash; both pass, since they're
+the inclusive edges of the blue-ish range. Then try <strong>94</strong> or <strong>131</strong>:
+same color family to the eye, but the code says no. That cliff-edge behavior at an arbitrary
+number is exactly why classical rules break the way they do.
+</div>
+
+<script>
+  const hSlider = document.getElementById('h-slider');
+  const sSlider = document.getElementById('s-slider');
+  const vSlider = document.getElementById('v-slider');
+  const hValue = document.getElementById('h-value');
+  const sValue = document.getElementById('s-value');
+  const vValue = document.getElementById('v-value');
+  const swatch = document.getElementById('swatch');
+  const readout = document.getElementById('readout');
+  const verdict = document.getElementById('verdict');
+
+  function hsvToRgb(hCv, sCv, vCv) {
+    const h = (hCv * 2) % 360;
+    const s = sCv / 255;
+    const v = vCv / 255;
+    const c = v * s;
+    const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+    const m = v - c;
+    let r1, g1, b1;
+    if (h < 60)      [r1, g1, b1] = [c, x, 0];
+    else if (h < 120) [r1, g1, b1] = [x, c, 0];
+    else if (h < 180) [r1, g1, b1] = [0, c, x];
+    else if (h < 240) [r1, g1, b1] = [0, x, c];
+    else if (h < 300) [r1, g1, b1] = [x, 0, c];
+    else              [r1, g1, b1] = [c, 0, x];
+    return [
+      Math.round((r1 + m) * 255),
+      Math.round((g1 + m) * 255),
+      Math.round((b1 + m) * 255),
+    ];
+  }
+
+  function toHex(r, g, b) {
+    return '#' + [r, g, b].map(v => v.toString(16).padStart(2, '0')).join('').toUpperCase();
+  }
+
+  // Mirrors color_mask() in part1_rules_workshop.ipynb exactly.
+  function inRange(h, s, v, lower, upper) {
+    return h >= lower[0] && h <= upper[0] &&
+           s >= lower[1] && s <= upper[1] &&
+           v >= lower[2] && v <= upper[2];
+  }
+
+  function update() {
+    const h = parseInt(hSlider.value, 10);
+    const s = parseInt(sSlider.value, 10);
+    const v = parseInt(vSlider.value, 10);
+
+    hValue.textContent = h;
+    sValue.textContent = s;
+    vValue.textContent = v;
+
+    const [r, g, b] = hsvToRgb(h, s, v);
+    swatch.style.backgroundColor = `rgb(${r},${g},${b})`;
+    readout.innerHTML = `HSV(${h}, ${s}, ${v})<br>RGB(${r}, ${g}, ${b})<br>${toHex(r, g, b)}`;
+
+    const whiteMatch = inRange(h, s, v, [0, 0, 150], [179, 60, 255]);
+    const blueMatch = inRange(h, s, v, [95, 80, 60], [130, 255, 255]);
+    const matched = whiteMatch || blueMatch;
+
+    if (matched) {
+      verdict.className = 'verdict pass';
+      verdict.innerHTML = '\u2713 color_mask() would flag this' +
+        `<span class="why">Matched: ${whiteMatch ? 'white/light range' : ''}${whiteMatch && blueMatch ? ' and ' : ''}${blueMatch ? 'blue-ish range' : ''}</span>`;
+    } else {
+      verdict.className = 'verdict fail';
+      verdict.innerHTML = '\u2717 color_mask() would NOT flag this' +
+        '<span class="why">Outside both the white/light range and the blue-ish range</span>';
+    }
+  }
+
+  [hSlider, sSlider, vSlider].forEach(el => el.addEventListener('input', update));
+  update();
+</script>
+
+</body>
+</html>
